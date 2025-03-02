@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import streamlit as st
@@ -160,13 +159,13 @@ class World_stats:
 
         return fg
 
-    def compare_with_countries(self,country,cancer_type):
-        '''Compare no. of people died due to particular cancer with particular country and world till 2019'''
-        df = self.canc.groupby(['Entity','Type of cancer'])['Death'].sum().reset_index()
+    # def compare_with_countries(self,country,cancer_type):
+    #     '''Compare no. of people died due to particular cancer with particular country and world till 2019'''
+    #     df = self.canc.groupby(['Entity','Type of cancer'])['Death'].sum().reset_index()
 
-        t_df = df[(df['Entity'] == country) & (df['Type of cancer'] == cancer_type)]
-        death_in_world = self.canc[self.canc['Type of cancer'] == cancer_type]['Death'].sum()
-        key = [country,'World']
-        l = np.array([t_df['Death'].values[0],death_in_world]).ravel()
-        plt.pie(l,labels=key,autopct='%.0f%%')
+    #     t_df = df[(df['Entity'] == country) & (df['Type of cancer'] == cancer_type)]
+    #     death_in_world = self.canc[self.canc['Type of cancer'] == cancer_type]['Death'].sum()
+    #     key = [country,'World']
+    #     l = np.array([t_df['Death'].values[0],death_in_world]).ravel()
+    #     plt.pie(l,labels=key,autopct='%.0f%%')
 
